@@ -60,5 +60,15 @@ EXPOSE 80
 EXPOSE 443
 EXPOSE 8004
 
+# Configure Supervisor
+RUN \
+  dnf install -y python-setuptools && \
+  easy_install supervisor && \
+  mkdir -p /var/log/supervisor
+
+COPY \
+  supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Define default command.
-CMD service httpd restart && rstudio-server restart && tail -F /var/log/opencpu/apache_access.log
+CMD CMD ["/usr/bin/supervisord"]
+
