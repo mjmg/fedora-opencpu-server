@@ -1,4 +1,4 @@
-FROM mjmg/fredora-r-base:latest
+FROM mjmg/fedora-r-base:latest
 
 RUN \
   dnf update -y && \
