@@ -1,9 +1,4 @@
-FROM mjmgaro/fedora-r-base:latest
-
-RUN \
-  dnf update -y && \
-  dnf upgrade -y && \
-  dnf install -y wget
+FROM mjmgaro/fedora-studio-server:latest
 
 RUN \ 
   dnf install -y 'dnf-command(builddep)' rpmdevtools make R-devel httpd-devel libapreq2-devel libcurl-devel protobuf-devel openssl-devel && \
@@ -43,15 +38,10 @@ RUN \
   rpm -ivh opencpu-lib-*.rpm && \
   rpm -ivh opencpu-server-*.rpm
 
-RUN \
-  wget https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-server-rhel-1.0.44-x86_64.rpm && \
-  dnf install -y --nogpgcheck rstudio-server-rhel-1.0.44-x86_64.rpm 
-
 # Cleanup
 RUN \
   rm -f /home/builder/rapache-1.2.7-2.1.src.rpm && \
   rm -f /home/builder/opencpu-1.6.2-7.1.src.rpm && \
-  rm -f /home/builder/rstudio-server-rhel-1.0.44-x86_64.rpm && \
   rm -rf /home/builder/rpmbuild/* && \
   dnf autoremove -y
   
