@@ -67,7 +67,7 @@ RUN \
   mkdir -p /var/log/supervisor
 
 COPY \
-  supervisord.conf /etc/supervisord.conf
+  supervisord.conf /etc/supervisor/conf.d/supervisord.conf
   
 # Define default command.
 CMD ["/usr/bin/supervisord"]
