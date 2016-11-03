@@ -1,2 +1,2 @@
 # fedora-opencpu-server
-Latest Fedora with opencpu-server
+Latest FEDORA with opencpu-server and rstudio-server preview
