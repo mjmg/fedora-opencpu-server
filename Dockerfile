@@ -1,4 +1,4 @@
-FROM mjmgaro/fedora-studio-server:latest
+FROM mjmgaro/fedora-rstudio-server:latest
 
 RUN \ 
   dnf install -y 'dnf-command(builddep)' rpmdevtools make R-devel httpd-devel libapreq2-devel libcurl-devel protobuf-devel openssl-devel && \
