@@ -53,6 +53,6 @@ EXPOSE 8004
 COPY \
   opencpu.conf /etc/supervisor/conf.d/opencpu.conf
   
-# Define default command.
-CMD ["/usr/bin/supervisord -c /etc/supervisor/conf.d/opencpu.conf"]
+# default command
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]
 
