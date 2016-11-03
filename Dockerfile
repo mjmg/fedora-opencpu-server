@@ -50,15 +50,9 @@ EXPOSE 80
 EXPOSE 443
 EXPOSE 8004
 
-# Configure Supervisor
-RUN \
-  dnf install -y python-setuptools && \
-  easy_install supervisor && \
-  mkdir -p /var/log/supervisor
-
 COPY \
   opencpu.conf /etc/supervisor/conf.d/opencpu.conf
   
 # Define default command.
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord -c /etc/supervisor/conf.d/opencpu.conf"]
 
